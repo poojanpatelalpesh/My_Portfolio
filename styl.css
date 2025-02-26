@@ -1,0 +1,293 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(17, 17, 17);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 30px;
+    font-family: 'Lato', sans-serif; /* Apply Lato to body text */
+}
+
+.myimage {
+    margin-right: 50px;
+    margin-left: 20px;
+}
+
+.myinfo {
+    border: 1px solid black;
+    background-color: rgb(17, 17, 17);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    width: 680px;
+    height: auto;
+    padding: 20px;
+}
+
+#namehead {
+    font-size: 55px;
+    color: rgb(255, 180, 0);
+    font-family: 'Playfair Display', serif; /* Apply Playfair Display to headings */
+}
+
+#work {
+    font-size: 55px;
+    color: rgb(255, 255, 255);
+    font-family: 'Playfair Display', serif; /* Apply Playfair Display to headings */
+}
+
+#intro {
+    font-size: 23px;
+    color: rgb(255, 255, 255);
+    font-family: 'Lato', sans-serif; /* Apply Lato to body text */
+}
+
+.more {
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+#moreabt {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 180, 0);
+    padding: 5px;
+    background: rgb(255, 180, 0);
+    border-radius: 30em;
+}
+
+#imgp {
+    width: 500px;
+    height: 700px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 35px rgb(255, 180, 0);
+}
+
+.navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 60px;
+    background-color: rgb(17, 17, 17);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.navbar li {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    background: rgb(255, 180, 0);
+    border-radius: 50%;
+}
+
+.navbar li img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.navbar li span {
+    position: absolute;
+    left: -135px;
+    opacity: 0;
+    white-space: nowrap;
+    background-color: rgb(255, 180, 0);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 30em;
+    font-size: 20px;
+    transform: translateX(50px);
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.navbar li:hover img {
+    transform: scale(1.1);
+}
+
+.navbar li:hover span {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        padding-top: 20px;
+        height: auto;
+    }
+
+    .myimage {
+        margin: 0 auto;
+    }
+
+    .myinfo {
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    #namehead, #work {
+        font-size: 45px;
+    }
+
+    #intro, .more {
+        font-size: 20px;
+    }
+
+    #imgp {
+        width: 400px;
+        height: 550px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 10px;
+        text-align: center;
+        height: auto;
+    }
+
+    .myimage {
+        margin: 0 auto;
+    }
+
+    .myinfo {
+        width: 90%;
+        max-width: 500px;
+        gap: 0.8rem;
+    }
+
+    #namehead, #work {
+        font-size: 38px;
+    }
+
+    #intro, .more {
+        font-size: 18px;
+    }
+
+    #imgp {
+        width: 350px;
+        height: 480px;
+    }
+
+    .navbar {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .navbar ul {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .navbar li {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar li img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar li span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .myinfo {
+        width: 90%;
+        max-width: 400px;
+        padding: 15px;
+        margin: 15px;
+    }
+
+    #namehead, #work {
+        font-size: 30px;
+    }
+
+    #intro, .more {
+        font-size: 16px;
+    }
+
+    #imgp {
+        width: 280px;
+        height: 400px;
+        margin-top: 70px;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .navbar ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .navbar li {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar li a {
+        padding: 5px;
+    }
+
+    .navbar li img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar li span {
+        display: none;
+    }
+}

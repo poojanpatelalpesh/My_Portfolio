@@ -1,0 +1,323 @@
+body {
+    margin: 0px;
+    padding: 0%;
+    box-sizing: border-box;
+    background: rgb(17, 17, 17);
+    font-family: 'Lato', sans-serif; /* Apply Lato to body text */
+}
+
+.port {
+    width: 100%;
+    height: 100%;
+    background: rgb(17, 17, 17);
+}
+
+#h-port, #h-prj {
+    font-size: 50px;
+    font-family: 'Playfair Display', serif; /* Apply Playfair Display to headings */
+    color: rgb(255, 180, 0);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Grid for skill cubes */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 55px;
+    justify-content: center;
+    place-items: center;
+    margin-top: 100px;
+}
+
+/* Cube container */
+.cube {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    transform-style: preserve-3d;
+    animation: rotate 15s infinite linear;
+}
+
+/* Cube faces */
+.face {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Styling */
+.face img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+}
+
+/* Corrected Cube Faces Positioning */
+.front  { transform: translateZ(60px); }
+.back   { transform: rotateY(180deg) translateZ(60px); }
+.left   { transform: rotateY(-90deg) translateZ(60px); }
+.right  { transform: rotateY(90deg) translateZ(60px); }
+.top    { transform: rotateX(90deg) translateZ(60px); }
+.bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+/* Rotation Animation */
+@keyframes rotate {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to   { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.projects {
+    width: 100%;
+    padding: 20px;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+
+.cards-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.cards-container::-webkit-scrollbar {
+    display: none;
+}
+
+.cards {
+    min-width: 200px;
+    max-width: 200px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    color: rgb(197, 197, 118);
+    box-shadow: 0px 10px 20px rgba(255, 180, 0, 0.2),
+                0px 6px 10px rgba(255, 180, 0, 0);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect to make it pop */
+.cards:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4),
+                0px 8px 12px rgba(0, 0, 0, 0.25);
+}
+
+.p-img img {
+    max-width: 100%;
+    max-height: 200px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    height: auto;
+}
+
+.hp, .hpp {
+    padding-left: 5px;
+    font-family: 'Lato', sans-serif; /* Apply Lato to body text */
+}
+
+.navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 60px;
+    background-color: rgb(17, 17, 17);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.navbar li {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    background: rgb(255, 180, 0);
+    border-radius: 50%;
+}
+
+.navbar li img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.navbar li span {
+    position: absolute;
+    left: -135px;
+    opacity: 0;
+    white-space: nowrap;
+    background-color: rgb(255, 180, 0);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 30em;
+    font-size: 20px;
+    transform: translateX(50px);
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.navbar li:hover img {
+    transform: scale(1.1);
+}
+
+.navbar li:hover span {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+    #h-port, #h-prj {
+        font-size: 40px; /* Reduce font size for smaller screens */
+    }
+
+    .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust grid for smaller screens */
+        gap: 30px; /* Reduce gap between cubes */
+    }
+
+    .cube {
+        width: 100px; /* Reduce cube size */
+        height: 100px;
+    }
+
+    .face {
+        width: 100px;
+        height: 100px;
+    }
+
+    .front, .back, .left, .right, .top, .bottom {
+        transform: translateZ(50px); /* Adjust cube face positioning */
+    }
+
+    .cards {
+        min-width: 150px; /* Adjust card size for smaller screens */
+        max-width: 150px;
+        height: 250px;
+    }
+
+    .navbar {
+        width: 50px; /* Reduce navbar width */
+    }
+
+    .navbar li {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar li img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navbar li span {
+        font-size: 16px; /* Reduce font size for navbar text */
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    #h-port, #h-prj {
+        font-size: 30px; /* Further reduce font size for phones */
+    }
+
+    .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust grid for phones */
+        gap: 20px;
+    }
+
+    .cube {
+        width: 80px; /* Further reduce cube size */
+        height: 80px;
+    }
+
+    .face {
+        width: 80px;
+        height: 80px;
+    }
+
+    .front, .back, .left, .right, .top, .bottom {
+        transform: translateZ(40px); /* Adjust cube face positioning */
+    }
+
+    .cards {
+        min-width: 120px; /* Adjust card size for phones */
+        max-width: 120px;
+        height: 200px;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width */
+        height: 60px; /* Reduced height */
+        flex-direction: row; /* Horizontal layout */
+        justify-content: space-around; /* Space items evenly */
+        padding: 0;
+    }
+
+    .navbar ul {
+        flex-direction: row; /* Horizontal layout */
+        gap: 10px; /* Reduce gap between items */
+    }
+
+    .navbar li {
+        width: 50px; /* Reduce size */
+        height: 50px;
+    }
+
+    .navbar li a {
+        padding: 5px;
+    }
+
+    .navbar li img {
+        width: 30px; /* Reduce icon size */
+        height: 30px;
+    }
+
+    .navbar li span {
+        display: none; /* Hide text on phones */
+    }
+}
